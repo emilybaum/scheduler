@@ -17,7 +17,6 @@ var destination = "";
 var firstTime = "";
 var frequency = "";
 
-database.ref().on("child")
 
 // listen for user input click to push data to firebase
 $("#add-train").on("click", function (event) {
@@ -25,20 +24,26 @@ $("#add-train").on("click", function (event) {
 
     trainName = $("#trainName-input").val().trim();
     destination = $("#destination-input").val().trim();
+
     firstTime = $("#firstTime-input").val().trim();
+    var start = moment(firstTime, "HH:mm").subtract(1, "years");
+    var militaryTime = start._i
+
     frequency = $("#frequency-input").val().trim();
 
-    // log user inputs
-    console.log(trainName, destination, firstTime, frequency);
-
-    // push as a child to firebase
-    database.ref().push({
+    var newTrain = {
         TrainName: trainName,
         Destination: destination,
-        FirstTime: firstTime,
+        FirstTime: militaryTime,
         Frequency: frequency,
         dateAdded: firebase.database.ServerValue.TIMESTAMP,
-    })
+    }
+    // log user inputs
+    console.log(newTrain);
+
+
+    // push as a child to firebase
+    database.ref().push(newTrain);
 })
 
 database.ref().on("child_added", function(childShapshot) {
