@@ -4,14 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-database.js"></script>
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
 
-    <title>Scheudles</title>
+    <title>train Scheudles</title>
 </head>
 <body>
     <div class="card m-5 border-dark text-center title-eb">
@@ -33,7 +37,8 @@
                     <th scope="col">Minutes Away</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="trainScheudleRow-display">
+                <!-- will delete this <tr> soon -->
                 <tr>
                     <td>one</td>
                     <td>Mark</td>
@@ -52,22 +57,22 @@
         </div>
         <form class="p-3">
             <div class="form-group">
-                <label for="formGroupExampleInput">Train Name</label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+                <label for="TrainName">Train Name</label>
+                <input type="text" class="form-control" id="trainName-input" placeholder="Add a train">
             </div>
             <div class="form-group">
-                <label for="formGroupExampleInput2">Destination</label>
-                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
+                <label for="destination">Destination</label>
+                <input type="text" class="form-control" id="destination-input" placeholder="Where the train is going">
             </div>
             <div class="form-group">
-                <label for="formGroupExampleInput3">First train Time (HH:mm - militarty time)</label>
-                <input type="text" class="form-control" id="formGroupExampleInput3" placeholder="Another input">
+                <label for="firstTime">First train Time (HH:mm - militarty time)</label>
+                <input type="text" class="form-control" id="firstTime-input" placeholder="When the train starts running">
             </div>
             <div class="form-group">
-                <label for="formGroupExampleInput4">Frequency (min)</label>
-                <input type="text" class="form-control" id="formGroupExampleInput4" placeholder="Another input">
+                <label for="frequency">Frequency (min)</label>
+                <input type="text" class="form-control" id="frequency-input" placeholder="Frequency">
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button id="add-train" type="submit" class="btn btn-primary">Add it!</button>
         </form>
     </div>
 
