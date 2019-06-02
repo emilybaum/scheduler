@@ -53,5 +53,9 @@ database.ref().on("child_added", function(childShapshot) {
     
     console.log(trainNameAdd, destinationAdd, firstTimeAdd, frequencyAdd)
 
-    $("#trainScheudleRow-display").append("<tr>" + trainNameAdd + destinationAdd + frequencyAdd + nextArrival + minutesAway + "</tr>")
-})
+    newRow = $("#trainScheudleRow-display").append("<tr>" + trainNameAdd + destinationAdd + frequencyAdd + nextArrival + minutesAway + "</tr>")
+    newRow.attr("class", "trainDataRow");
+
+}, function (errorObject) {
+    console.log("Errors handled: " + errorObject.code);
+});

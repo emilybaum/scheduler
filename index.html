@@ -10,6 +10,9 @@
     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-database.js"></script>
+    
+    <!-- is this how to add the moment link? -->
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -66,11 +69,11 @@
             </div>
             <div class="form-group">
                 <label for="firstTime">First train Time (HH:mm - militarty time)</label>
-                <input type="text" class="form-control" id="firstTime-input" placeholder="When the train starts running">
+                <input type="time" class="form-control" id="firstTime-input" placeholder="When the train starts running">
             </div>
             <div class="form-group">
                 <label for="frequency">Frequency (min)</label>
-                <input type="text" class="form-control" id="frequency-input" placeholder="Frequency">
+                <input type="number" class="form-control" id="frequency-input" placeholder="Frequency">
             </div>
             <button id="add-train" type="submit" class="btn btn-primary">Add it!</button>
         </form>
@@ -78,5 +81,7 @@
 
 
     <script src="assets/javascript/schedule.js"></script>
+
+    
 </body>
 </html>
