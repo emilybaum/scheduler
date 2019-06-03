@@ -22,7 +22,7 @@
 </head>
 <body>
     <div class="card m-5 border-dark text-center title-eb">
-        <h1>Train scheudles that you make</h1>
+        <h1>Create your own train schedule</h1>
     </div>
 
     <div class="card m-5 border-dark">
@@ -58,27 +58,72 @@
         <div class="card-header">
             Add Train
         </div>
-        <form class="p-3">
+        <form class="needs-validation p-3" novalidate>
             <div class="form-group">
                 <label for="TrainName">Train Name</label>
-                <input type="text" class="form-control" id="trainName-input" placeholder="Add a train">
+                <input type="text" class="form-control" id="trainName-input" placeholder="Add a train" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div class="invalid-feedback">
+                    This field is required to submit
+                </div>
             </div>
             <div class="form-group">
                 <label for="destination">Destination</label>
-                <input type="text" class="form-control" id="destination-input" placeholder="Where the train is going">
+                <input type="text" class="form-control" id="destination-input" placeholder="Where the train is going" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div class="invalid-feedback">
+                    This field is required to submit
+                </div>
             </div>
             <div class="form-group">
-                <label for="firstTime">First train Time (HH:mm - militarty time)</label>
-                <input type="time" class="form-control" id="firstTime-input" placeholder="When the train starts running">
+                <label for="firstTime">First train Time</label>
+                <input type="time" class="form-control" id="firstTime-input" placeholder="When the train starts running" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div class="invalid-feedback">
+                    This field is required to submit
+                </div>
             </div>
             <div class="form-group">
                 <label for="frequency">Frequency (min)</label>
-                <input type="number" class="form-control" id="frequency-input" placeholder="Frequency">
+                <input type="number" class="form-control" id="frequency-input" placeholder="Frequency" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div class="invalid-feedback">
+                    This field is required to submit
+                </div>
             </div>
             <button id="add-train" type="submit" class="btn btn-primary">Add it!</button>
         </form>
     </div>
 
+
+    <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function () {
+            'use strict';
+            window.addEventListener('load', function () {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+    </script>
 
     <script src="assets/javascript/schedule.js"></script>
 
