@@ -21,11 +21,16 @@
     <title>train Scheudles</title>
 </head>
 <body>
-    <div class="card m-5 border-dark text-center title-eb">
+<div class="contianer">
+    <div class="card m-3 mx-auto border-dark text-center title-eb">
         <h1>Create your own train schedule</h1>
     </div>
 
-    <div class="card m-5 border-dark">
+    <div class="card mx-auto border-light text-center">
+        <p>Today is <span id="date">date</span></p>
+    </div>
+
+    <div class="card m-3 mx-auto border-dark">
         <div class="card-header">
             Current Train Scheudle
         </div>
@@ -36,25 +41,19 @@
                     <th scope="col">Train Name</th>
                     <th scope="col">Destination</th>
                     <th scope="col">Frequency (min)</th>
-                    <th scope="col">next Arrival</th>
+                    <th scope="col">Next Arrival</th>
                     <th scope="col">Minutes Away</th>
                 </tr>
             </thead>
             <tbody id="trainScheudleRow-display">
-                <!-- will delete this <tr> soon -->
-                <tr>
-                    <td>one</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>hi</td>
-                </tr>
+                <!-- <td> and <tr> will be dynamically created -->
+            
             </tbody>
         </table>
 
     </div>
 
-    <div class="card m-5 border-dark">
+    <div class="card m-3 mx-auto border-dark">
         <div class="card-header">
             Add Train
         </div>
@@ -103,6 +102,7 @@
         </form>
     </div>
 
+</div>
 
     <script>
         // Example starter JavaScript for disabling form submissions if there are invalid fields

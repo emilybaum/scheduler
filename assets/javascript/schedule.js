@@ -1,5 +1,7 @@
-// $(document).ready({
+$(document).ready(function() {
 
+    $("#date").text(moment().format("MMMM Do YYYY"));
+    
     // initialize firebase and configuire
     var firebaseConfig = {
         apiKey: "AIzaSyAcs4BzwhmwjA3z9EKEKgLf3uw2SZPvIo8",
@@ -62,21 +64,24 @@
     database.ref().on("child_added", function(childShapshot) {
         var trainNameAdd = childShapshot.val().TrainName
         var destinationAdd = childShapshot.val().Destination
-
-        // use this to get minutes away ((first + (X)frequency) - current time)
         var firstTimeAdd = childShapshot.val().FirstTime
         var frequencyAdd = childShapshot.val().Frequency
-        var minutesAwayCalc = "";
+
+        var convertedTime = moment().diff(moment(firstTimeAdd), "minutes");
+        console.log(convertedTime + " is the difference in time")
+
+        var minutesAwayAdd = convertedTime % frequencyAdd;
+
         var nextArrivalCalc = "";
         
-        console.log(trainNameAdd, destinationAdd, firstTimeAdd, frequencyAdd)
 
         newRow = ("<tr>" + 
             "<td>" + trainNameAdd + "</td>" +
             "<td>" + destinationAdd + "</td>" +
             "<td>" + frequencyAdd + "</td>" +
-            "<td>" + minutesAwayCalc + "</td>" +
-            "<td>" + nextArrivalCalc + "</td>" + "</tr>");
+            "<td>" + minutesAwayAdd + "</td>" +
+            "<td>" + nextArrivalCalc + "</td>" + 
+            "</tr>");
 
         $("#trainScheudleRow-display").append(newRow);
 
@@ -85,4 +90,4 @@
     });
 
 
-// });
+});
