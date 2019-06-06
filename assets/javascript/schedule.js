@@ -74,25 +74,35 @@ $(document).ready(function() {
         var sinceStartTime = (currentTime.diff(time, "minutes"));
         console.log(trainNameAdd + " is " + sinceStartTime + " minutes from First Train Time")
 
-        // function realtimeUpdate() {
-            // calculating how many minutes away the train is
-            var minutesAwayAdd = (sinceStartTime % frequencyAdd)
+        // calculating how many minutes away the train is (sometimes this is counting down and sometimes this is counting up -- need to compare the time to the current time and adjust accordingly for counting up or down)
+        var minutesAwayAdd = sinceStartTime % frequencyAdd
 
-            // calculating the next arrival
-            var nextArrivalCalc = (frequencyAdd - (sinceStartTime % frequencyAdd))
+        // male sure the displayed number is always positive
+        if (minutesAwayAdd < 0) {
+            minutesAwayAdd = minutesAwayAdd * -1
+        }
 
-            newRow = ("<tr>" +
-                "<td>" + trainNameAdd + "</td>" +
-                "<td>" + destinationAdd + "</td>" +
-                "<td>" + firstTimeAdd + "</td>" +
-                "<td>" + frequencyAdd + "</td>" +
-                "<td>" + minutesAwayAdd + "</td>" +
-                "<td>" + nextArrivalCalc + "</td>" +
-                "</tr>");
+        var nextArrivalCalc = currentTime.add(minutesAwayAdd, "m")
+        nextArrivalCalc.format("HH:mm")
+        console.log("new " + nextArrivalCalc)
+        // calculating the time of the arrival
+        // var nextArrivalCalc = currentTime.format("m") + minutesAwayAdd
+        // console.log("the next arroval is " + nextArrivalCalc)
+        // console.log("ths currnet time in minutes " + currentTime.format("m"))
+        // var nextArrivalCalc =
+                
 
-            $("#trainScheudleRow-display").append(newRow);
-        // }
-        // realtimeUpdate()
+        newRow = ("<tr>" +
+            "<td>" + trainNameAdd + "</td>" +
+            "<td>" + destinationAdd + "</td>" +
+            "<td>" + firstTimeAdd + "</td>" +
+            "<td>" + frequencyAdd + "</td>" +
+            "<td>" + minutesAwayAdd + "</td>" +
+            "<td>" + nextArrivalCalc + "</td>" +
+            "</tr>");
+
+        $("#trainScheudleRow-display").append(newRow);
+    
         
 
     }, function (errorObject) {
