@@ -1,12 +1,28 @@
+/* 
+font-family: 'Staatliches', cursive;
+font-family: 'Lato', sans-serif;
+ */
+
 .card {
     width: 80%;
 }
 
 .card-header {
     background-color: #9eb5a3;
+    font-family: 'Lato', sans-serif;
+    
+}
+
+.form-group {
+    font-family: 'Lato', sans-serif;
+    color: red;
 }
 
 .title-eb {
+    font-family: 'Staatliches', cursive;
     background: #9eb5a3;
     height: 5rem;
+    color: white;
+    justify-content: center;
 }
+

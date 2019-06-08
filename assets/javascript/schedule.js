@@ -78,6 +78,8 @@ $(document).ready(function() {
         var minutesAwayCalc = sinceStartTime % frequencyAdd;
         var minutesAwayShow = frequencyAdd - minutesAwayCalc;   
 
+        var nexArrivalTime = moment().add(minutesAwayShow, "minutes").format("hh:mm a")
+
         newRow = ("<tr>" +
             "<td>" + trainNameAdd + "</td>" +
             "<td>" + destinationAdd + "</td>" +
