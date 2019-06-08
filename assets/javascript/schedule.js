@@ -32,7 +32,7 @@ $(document).ready(function() {
         firstTime = $("#firstTime-input").val().trim();
         var start = moment(firstTime, "HH:mm").subtract(1, "years");
         var militaryTime = start._i
-        console.log(start)
+        console.log(militaryTime)
 
         frequency = $("#frequency-input").val().trim();
 
@@ -69,37 +69,24 @@ $(document).ready(function() {
         var frequencyAdd = childShapshot.val().Frequency
         
         // calculations with moment
-        var currentTime = moment()
         var time = moment(firstTimeAdd, "hh:mm");
-        var sinceStartTime = (currentTime.diff(time, "minutes"));
-        console.log(trainNameAdd + " is " + sinceStartTime + " minutes from First Train Time")
+
+        // var sinceStartTime = (currentTime.diff(time, "minutes"));
+        var sinceStartTime = moment().diff(moment(time), "minutes")
 
         // calculating how many minutes away the train is (sometimes this is counting down and sometimes this is counting up -- need to compare the time to the current time and adjust accordingly for counting up or down)
-        var minutesAwayAdd = sinceStartTime % frequencyAdd
-
-        // male sure the displayed number is always positive
-        if (minutesAwayAdd < 0) {
-            minutesAwayAdd = minutesAwayAdd * -1
-        }
-
-        // STILL WORKING ON THIS
-        var nextArrivalCalc = currentTime.add(minutesAwayAdd, "m")
-        nextArrivalCalc.format("HH:mm")
-        console.log("new " + nextArrivalCalc)
-        
-                
+        var minutesAwayCalc = sinceStartTime % frequencyAdd;
+        var minutesAwayShow = frequencyAdd - minutesAwayCalc;   
 
         newRow = ("<tr>" +
             "<td>" + trainNameAdd + "</td>" +
             "<td>" + destinationAdd + "</td>" +
             "<td>" + frequencyAdd + "</td>" +
-            "<td>" + nextArrivalCalc + "</td>" +
-            "<td>" + minutesAwayAdd + "</td>" +
+            "<td>" + nexArrivalTime + "</td>" +
+            "<td>" + minutesAwayShow + "</td>" +
             "</tr>");
 
-        $("#trainScheudleRow-display").append(newRow);
-    
-        
+        $("#trainScheudleRow-display").append(newRow);        
 
     }, function (errorObject) {
         console.log("Errors handled: " + errorObject.code);
