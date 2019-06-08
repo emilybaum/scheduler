@@ -82,23 +82,19 @@ $(document).ready(function() {
             minutesAwayAdd = minutesAwayAdd * -1
         }
 
+        // STILL WORKING ON THIS
         var nextArrivalCalc = currentTime.add(minutesAwayAdd, "m")
         nextArrivalCalc.format("HH:mm")
         console.log("new " + nextArrivalCalc)
-        // calculating the time of the arrival
-        // var nextArrivalCalc = currentTime.format("m") + minutesAwayAdd
-        // console.log("the next arroval is " + nextArrivalCalc)
-        // console.log("ths currnet time in minutes " + currentTime.format("m"))
-        // var nextArrivalCalc =
+        
                 
 
         newRow = ("<tr>" +
             "<td>" + trainNameAdd + "</td>" +
             "<td>" + destinationAdd + "</td>" +
-            "<td>" + firstTimeAdd + "</td>" +
             "<td>" + frequencyAdd + "</td>" +
-            "<td>" + minutesAwayAdd + "</td>" +
             "<td>" + nextArrivalCalc + "</td>" +
+            "<td>" + minutesAwayAdd + "</td>" +
             "</tr>");
 
         $("#trainScheudleRow-display").append(newRow);
