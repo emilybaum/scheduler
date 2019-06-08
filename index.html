@@ -17,23 +17,31 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Lato|Staatliches&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Arvo&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
 
-    <title>Train Scheudles</title>
+    <title>Train Scheudle</title>
 </head>
 <body>
 <div class="contianer">
-    <div class="card m-3 mx-auto border-dark text-center title-eb">
-        <h1 class="mb-0 title-text">Create your own train schedule</h1>
+    <!-- <div class="card m-3 p-2 mx-auto border-dark text-center title-eb">
+        <h1 class="mb-0 p-2 title-text">Create your own train schedule</h1>
+    </div> -->
+
+    <div class="jumbotron jumbotron-fluid p-1 pt-3 text-center">
+        <div class="container">
+            <h1 class="display-4">Create your own train schedule</h1>
+            <p class="lead">And never miss your train again</p>
+        </div>
     </div>
 
-    <div class="card mx-auto border-light text-center">
-        <p>Today is <span id="date">date</span></p>
+    <div class="card mx-auto text-center day-eb">
+        <p class="mb-0">Today is <span id="date">date</span></p>
     </div>
 
-    <div class="card m-3 mx-auto border-dark">
+    <div class="card m-3 mx-auto border-eb">
         <div class="card-header">
-            Current Train Scheudle
+            <h4 class="mb-0">Ideal Train Scheudle</h4>
         </div>
 
         <table class="table table-striped">
@@ -55,9 +63,9 @@
 
     </div>
 
-    <div class="card m-3 mx-auto border-dark">
+    <div class="card m-3 mx-auto border-eb">
         <div class="card-header">
-            Add Train
+            <h4 class="mb-0">Add a Train</h4>
         </div>
         <form class="needs-validation p-3" novalidate>
             <div class="form-group">

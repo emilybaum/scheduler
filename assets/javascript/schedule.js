@@ -76,7 +76,8 @@ $(document).ready(function() {
 
         // calculating how many minutes away the train is (sometimes this is counting down and sometimes this is counting up -- need to compare the time to the current time and adjust accordingly for counting up or down)
         var minutesAwayCalc = sinceStartTime % frequencyAdd;
-        var minutesAwayShow = frequencyAdd - minutesAwayCalc;   
+        var minutesAwayShow = frequencyAdd - minutesAwayCalc; 
+        console.log(minutesAwayShow)  
 
         var nexArrivalTime = moment().add(minutesAwayShow, "minutes").format("hh:mm a")
 
@@ -84,15 +85,20 @@ $(document).ready(function() {
             "<td>" + trainNameAdd + "</td>" +
             "<td>" + destinationAdd + "</td>" +
             "<td>" + frequencyAdd + "</td>" +
-            "<td>" + nexArrivalTime + "</td>" +
+            "<td class='checkforNow'>" + nexArrivalTime + "</td>" +
             "<td>" + minutesAwayShow + "</td>" +
             "</tr>");
 
-        $("#trainScheudleRow-display").append(newRow);        
+        $("#trainScheudleRow-display").append(newRow);  
+
+        if (nexArrivalTime === moment().subtract(1, "minute")) {
+            $(".checkforNow").addClass("isNow")
+        }    
 
     }, function (errorObject) {
         console.log("Errors handled: " + errorObject.code);
     });
+
 
 
 });

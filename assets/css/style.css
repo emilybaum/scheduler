@@ -1,6 +1,7 @@
 /* 
 font-family: 'Staatliches', cursive;
 font-family: 'Lato', sans-serif;
+font-family: 'Arvo', serif;
  */
 
 .card {
@@ -10,12 +11,13 @@ font-family: 'Lato', sans-serif;
 .card-header {
     background-color: #9eb5a3;
     font-family: 'Lato', sans-serif;
-    
+    text-emphasis: bold;
+    color: white;
 }
 
 .form-group {
     font-family: 'Lato', sans-serif;
-    color: red;
+    color: #000000;
 }
 
 .title-eb {
@@ -25,4 +27,26 @@ font-family: 'Lato', sans-serif;
     color: white;
     justify-content: center;
 }
+
+.jumbotron {
+    text-align: left;
+    font-family: 'Staatliches', cursive;
+    background: #9eb5a3;
+    color: white;
+}
+
+.day-eb {
+    justify-content: center;
+    border: white;
+    font-family: 'Arvo', serif;
+}
+
+.border-eb {
+    border: 4px solid #9eb5a3;
+}
+
+.isNow {
+    color: red;
+}
+
 
